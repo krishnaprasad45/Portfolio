@@ -1,0 +1,116 @@
+<form action=""; class="php-email-form" id="submit-form">
+    <div class="row">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" name="name" class="form-control" id="name" placeholder="enter your name">
+        <span id="name_error" style="color: red;"></span>
+      </div>
+      <div class="form-group">
+        <label for="name">Email</label>
+        <input type="text" class="form-control" name="email" id="email" placeholder="enter your Email">
+        <span id="email_error" style="color: red;"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="name">Phone Number</label>
+      <input type="number" class="form-control" name="phone" id="phone" placeholder="enter your phone">
+      <span id="phone_error" style="color: red;"></span>
+    </div>
+    <div class="form-group">
+      <label for="name">Message</label>
+      <textarea class="form-control" name="message" rows="10" id="message" placeholder="message about project"></textarea>
+      <span id="message_error" style="color: red;"></span>
+    </div>
+    <div class="my-3">
+    </div>
+    <div class="text-center">
+      <button type="submit" value="submit" onclick="return validation()">send message</button>
+    </div>
+  </form>
+
+
+
+
+
+  // form validation  
+    function validation(){
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+    var message = document.getElementById('message').value;
+    reg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    email_result = reg.test(email);
+    
+    // name 
+    if(name == ''){
+      document.getElementById('name_error').innerHTML = "please enter your name"
+      return false
+    }
+    else if (name.indexOf(" ") >= 0) {
+      document.getElementById('name_error').innerHTML = "dont use spaces"
+    return false;
+    }
+    else{
+      document.getElementById('name_error').innerHTML = ""
+    }
+
+  //  email 
+    if(email == ''){
+      document.getElementById('email_error').innerHTML = "please enter your email"
+      return false
+    }else if(email_result == false){
+      document.getElementById('email_error').innerHTML = " please enter a valid email"
+      return false
+    }
+    else{
+      document.getElementById('email_error').innerHTML = ""
+    }
+
+    // phone 
+    if(phone == ''){
+      document.getElementById('phone_error').innerHTML = "please enter your phone number"
+      return false
+    }else if(phone.length<10 || phone.length>10){
+      document.getElementById('phone_error').innerHTML = " please enter a valid phone number"
+      return false
+    }
+    else{
+      document.getElementById('phone_error').innerHTML = ""
+    }
+
+    // message 
+    if(message == ''){
+      document.getElementById('message_error').innerHTML = "please enter any message"
+      return false
+    }else if(message.length<10){
+      document.getElementById('message_error').innerHTML = "message too short!"
+      return false
+    }
+    else{
+      document.getElementById('message_error').innerHTML = ""
+      // setTimeout(function() {window.location = "./page2/done.html" });
+    }
+  }
+
+
+
+
+  <script>
+    $("#submit-form").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+            url:"https://script.google.com/macros/s/AKfycbw6SEQEyjKxldEYHeM-SOjHnJK_MGbpWyAWlnzb-_TvlE7P4W_mABwU_Yn3ohcKybL0/exec",
+            data:$("#submit-form").serialize(),
+            method:"post",
+            success:function (response){
+                window.location.reload()
+                window.location.href="./page2/done.html"
+            },
+            error:function (err){
+                alert("Something Error")
+
+            }
+        })
+    })
+   
+</script>

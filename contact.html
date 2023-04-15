@@ -15,6 +15,7 @@
     <!-- Template CSS Style link -->
     <link rel="stylesheet" href="assets/css/style-liberty.css">
 
+
 </head>
 
 <body>
@@ -130,22 +131,23 @@
                 </div>
                 <div class="d-grid cont-main-top">
                     <!-- contact form -->
-                    <div class="contacts12-main">
-                        <form id="gform"
-                            action="https://script.google.com/macros/s/AKfycbztvUkCcbakAR3sQ5hIQ0FWWvhLFocMRMJ7Q22FN73cxGjdI5XFkbEKlBcfmhrfhVFS/exec "
-                            method="post" class="main-input">
+                    <div class="contacts12-main"> 
+                        <form id="submit-form"
+                        
+                            action=""
+                            class="main-input">
                             <div class="top-inputs d-grid">
-                                <input type="text" placeholder="Name" name="Name" id="w3lName" required="">
-                                <input type="email" name="email" placeholder="Email" id="w3lSender" required="">
+                                <input type="text" placeholder="Name" name="name" id="name" required="">
+                                <input type="email" placeholder="Email" name="email" id="email" required="">
                             </div>
-                            <input type="text" placeholder="Phone Number" name="Mobile" id="w3lName" required="">
-                            <textarea placeholder="Message" name="Message" id="w3lMessage" required=""></textarea>
+                            <input type="text" pattern="[789][0-9]{9}" name="mobile" placeholder="Phone Number" id="phone" required="">
+                            <textarea placeholder="Message" id="m" name="message" required=""></textarea>
                             <div class="text-end">
-                                <button type="submit" class="btn btn-primary btn-style">Submit Now</button>
+                                <button type="submit" value="Submit" onclick="return validation()" class="btn btn-primary btn-style">Submit Now</button>
                             </div>
                         </form>
                     </div>
-                    <!-- //contact form -->
+                    <!-- //contact form --> 
                 </div>
             </div>
 
@@ -211,6 +213,9 @@
     <button onclick="topFunction()" id="movetop" title="Go to top">
         <span class="fas fa-level-up-alt" aria-hidden="true"></span>
     </button>
+
+
+   
     <script>
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function () {
@@ -379,8 +384,20 @@
 
     <!--bootstrap-->
     <script src="assets/js/bootstrap.min.js"></script>
+
+
+    <!-- <script src="./assets/js/form.js"></script> -->
+    <script src="./assets/js/form_validation.js"></script>
     <!-- //bootstrap-->
     <!-- //Js scripts -->
+   
+  
+    
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
 </body>
 

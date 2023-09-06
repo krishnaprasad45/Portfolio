@@ -67,21 +67,33 @@ function isValidPhone(phone) {
 }
 
 $(document).ready(function () {
-  $("#submit-form").submit(function (e) {
+    $("#submit-form").submit(function (e) {
       e.preventDefault();
       if (validation()) {
-          $.ajax({
-              url: "https://script.google.com/macros/s/AKfycbySyp0A7muiS75f_41H6joI6xIWt7U6dsW7P--r4ySpI3d2gcf0UZ4RpfDjZ-VIDPAw/exec",
-              data: $("#submit-form").serialize(),
-              method: "post",
-              success: function (response) {
-                  alert("Form submitted successfully");
-                  window.location.reload();
-              },
-              error: function (err) {
-                  alert("Something went wrong");
-              }
-          });
+        // Show loading animation and hide form
+        $("#loading-animation").show();
+        $("#submit-form").hide();
+  
+        $.ajax({
+          url: "https://script.google.com/macros/s/AKfycbySyp0A7muiS75f_41H6joI6xIWt7U6dsW7P--r4ySpI3d2gcf0UZ4RpfDjZ-VIDPAw/exec",
+          data: $("#submit-form").serialize(),
+          method: "post",
+          success: function (response) {
+            // Hide loading animation and show success message
+            $("#loading-animation").hide();
+            $("#success-message").show();
+  
+            // Redirect to index.html after a delay
+            setTimeout(function () {
+              window.location.href = "index.html";
+            }, 1000); // Delay for 2 seconds (2000 milliseconds)
+          },
+          error: function (err) {
+            // Hide loading animation and show an error message
+            $("#loading-animation").hide();
+            alert("Something went wrong");
+          }
+        });
       }
+    });
   });
-});

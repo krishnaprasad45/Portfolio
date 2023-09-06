@@ -18,8 +18,13 @@
 
 </head>
 
-<body>
 
+<body>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 
 
 
@@ -68,7 +73,7 @@
                     </ul>
                 </div>
 
-            
+
 
                 <!-- toggle switch for light and dark theme -->
                 <div class="cont-ser-position">
@@ -124,18 +129,30 @@
                                 <input type="text" placeholder="Name" name="name" id="name" required="">
                                 <input type="email" placeholder="Email" name="email" id="email" required="">
                             </div>
-                            <input type="tel" pattern="[789][0-9]{9}" placeholder="Phone Number" name="phone" id="phone" required="">
+                            <input type="tel" pattern="[789][0-9]{9}" placeholder="Phone Number" name="phone" id="phone"
+                                required="">
                             <textarea placeholder="Message" name="message" id="message" required=""></textarea>
                             <div class="error-box">
                                 <div id="error-container" class="error-container"></div>
-                            </div>    
+                            </div>
                             <div class="text-end">
-                                <button type="submit" value="Submit" onclick="return validation()" class="btn btn-primary btn-style">Submit Now</button>
+                                <button type="submit" value="Submit" onclick="return validation()"
+                                    class="btn btn-primary btn-style">Submit Now</button>
                             </div>
                         </form>
                     </div>
-                    
-                                   <!-- //contact form -->
+
+                    <!-- //contact form -->
+
+                    <div id="loading-animation" class="hidden">
+                        <div class="preloader"></div>
+                      </div>
+                      <div id="success-message" class="hidden">
+                        <p ><i class="fas fa-check-circle"></i> Form submitted successfully</p>
+                      </div>
+                      
+                      
+
                 </div>
             </div>
 
@@ -190,7 +207,8 @@
                                         class="fab me-2 fa-google-plus"></span></a></li>
                             <li><a href="https://instagram.com/secretcode.45?utm_source=qr&igshid=OGIxMTE0OTdkZA=="><span
                                         class="fab me-2 fa-instagram"></span></a></li>
-                                        <li><a href="https://www.linkedin.com/in/krishnaprasad-c-4830a9192"><i class="fab fa-linkedin"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/krishnaprasad-c-4830a9192"><i
+                                        class="fab fa-linkedin"></i></a></li>
 
                         </ul>
                     </div>
